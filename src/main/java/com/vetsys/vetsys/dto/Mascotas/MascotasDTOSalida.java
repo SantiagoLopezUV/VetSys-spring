@@ -1,6 +1,5 @@
 package com.vetsys.vetsys.dto.Mascotas;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,8 +10,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 
-// DTO de salida para listar mascotas en la vista
-public class MascotasDTO
+// DTO de salida para listar mascotas
+public class MascotasDTOSalida
 {
     private long idMascota;
     private String nombre;
