@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mascotas VetSys</title>
+</head>
+
+<body>
+
+<h1 th:text="${mascota.id_mascota == null} ? 'Registrar Mascota' : 'Editar Mascota'">
+    Registrar Mascota
+</h1>
+
+<form th:action="@{/view/mascotas/save}"
+      th:object="${mascota}"
+      method="post">
+
+    <input type="hidden" th:field="*{id_mascota}">
+
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required>
+    <br><br>
+
+    <label>Especie:</label>
+    <input type="text" th:field="*{especie}" required>
+    <br><br>
+
+    <label>Raza:</label>
+    <input type="text" th:field="*{raza}" required>
+    <br><br>
+
+    <label>Edad:</label>
+    <input type="number" th:field="*{edad}" required>
+    <br><br>
+
+    <label>Dueño:</label>
+    <select th:field="*{idDueno}" required>
+        <option value="">Selecciona un dueño</option>
+        <option th:each="dueno : ${duenos}"
+                th:value="${dueno.id_dueno}"
+                th:text="${dueno.nombre}">
+        </option>
+    </select>
+    <br><br>
+
+    <button type="submit">Guardar Mascota</button>
+    <a th:href="@{/view/mascotas}">
+        <button type="button">Atras</button>
+    </a>
+
+</form>
+
+</body>
+</html>
