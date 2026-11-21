@@ -20,6 +20,7 @@
 <p th:if="${messsage}" th:text="${messsage}"></p>
 <p th:if="${message}" th:text="${message}"></p>
 <p th:if="${success}" th:text="${success}"></p>
+<p th:if="${message}" th:text="${message}"></p>
 
 <table border="1">
 
@@ -40,11 +41,11 @@
 
         <td>
 
-            <a th:href="@{'/view/duenos/edit/' + ${usuario.id_usuario}}">
+            <a th:href="@{'/view/duenos/edit/' + ${dueno.id_dueno}}">
                 Editar
             </a>
 
-            <form th:action="@{'/view/duenos/delete/' + ${usuario.id_usuario}}"
+            <form th:action="@{'/view/duenos/delete/' + ${dueno.id_dueno}}"
                   method="post">
 
                 <button type="submit">
