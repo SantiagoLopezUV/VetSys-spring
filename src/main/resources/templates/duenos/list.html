@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dueños VetSys</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+
+<nav th:replace="~{fragmentos/navbar :: navbar}"></nav>
+
+<h1>Lista de Dueños</h1>
+
+<a th:href="@{/view/duenos/form}">
+    <button type="button"> Registrar Dueño
+    </button>
+</a>
+
+<br><br>
+
+<p th:if="${param.message}" th:text="${param.message}" style="color: green; font-weight: bold;"></p>
+<p th:if="${message}" th:text="${message}" style="color: green; font-weight: bold;"></p>
+<p th:if="${error}" th:text="${error}" style="color: red; font-weight: bold;"></p>
+
+<table border="1">
+
+    <thead>
+    <tr>
+        <th>Acciones</th>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Correo</th>
+        <th>Dirección</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr th:each="dueno : ${duenos}">
+
+        <td>
+
+            <a th:href="@{'/view/duenos/edit/' + ${dueno.id_dueno}}">
+                <button type="button" >Editar</button>
+            </a>
+
+            <form th:action="@{'/view/duenos/delete/' + ${dueno.id_dueno}}"
+                  method="post"
+                  onsubmit="return confirm('¿Seguro que deseas eliminar este dueño?');">
+                <button type="submit">Eliminar</button>
+            </form>
+
+        </td>
+        <td th:text="${dueno.id_dueno}"></td>
+        <td th:text="${dueno.nombre}"></td>
+        <td th:text="${dueno.telefono}"></td>
+        <td th:text="${dueno.correo}"></td>
+        <td th:text="${dueno.direccion}"></td>
+    </tr>
+
+    </tbody>
+
+</table>
+
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

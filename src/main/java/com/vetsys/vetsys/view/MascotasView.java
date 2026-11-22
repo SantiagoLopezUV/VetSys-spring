@@ -93,8 +93,12 @@ public class MascotasView {
     @PostMapping("/view/mascotas/delete/{id}")
     public String delete(@PathVariable Long id, RedirectAttributes rs)
     {
-        mascotaRepository.deleteById(id);
-        rs.addFlashAttribute("message", "Mascota eliminada correctamente");
+        try {
+            mascotaRepository.deleteById(id);
+            rs.addFlashAttribute("message", "Mascota eliminada correctamente");
+        } catch (Exception e) {
+            rs.addFlashAttribute("error", "No se puede eliminar la mascota porque tiene citas médicas asociadas.");
+        }
         return "redirect:/view/mascotas";
     }
 

@@ -57,8 +57,12 @@ public class DuenoView {
 
     @PostMapping("/view/duenos/delete/{id}")
     public String delete(@PathVariable Long id, RedirectAttributes rs) {
-        duenoRepository.deleteById(id);
-        rs.addFlashAttribute("messsage", "Dueño eliminado correctamente");
+        try {
+            duenoRepository.deleteById(id);
+            rs.addFlashAttribute("message", "Dueño eliminado correctamente");
+        } catch (Exception e) {
+            rs.addFlashAttribute("error", "No se puede eliminar el dueño porque tiene mascotas asociadas.");
+        }
         return "redirect:/view/duenos";
     }
 }
