@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Citas VetSys</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+
+<div th:replace="~{fragmentos/navbar :: navbar}"></div>
+
+<h1 th:text="${cita.id_cita == null} ? 'Registrar Cita' : 'Editar Cita'">Registrar Cita</h1>
+
+<form th:action="@{/view/citas/save}" th:object="${cita}" method="post">
+
+    <input type="hidden" th:field="*{id_cita}">
+
+    <div>
+        <label>Fecha de la Cita:</label><br>
+        <input type="date" th:field="*{fecha}" required>
+    </div>
+    <br>
+
+    <div>
+        <label>Mascota:</label><br>
+        <select th:field="*{idMascota}" required>
+            <option value="">Selecciona una Mascota</option>
+            <option th:each="m : ${mascotas}"
+                    th:value="${m.id_mascota}"
+                    th:text="${m.nombre + ' (' + m.especie + ' - Dueño: ' + (m.dueno != null ? m.dueno.nombre : 'Sin dueño') + ')'}">
+            </option>
+        </select>
+    </div>
+    <br>
+
+    <div>
+        <label>Veterinario:</label><br>
+        <input type="text" th:field="*{veterinario}" placeholder="Nombre del veterinario" required size="40">
+    </div>
+    <br>
+
+    <div>
+        <label>Motivo de la consulta:</label><br>
+        <textarea th:field="*{motivo}" rows="4" cols="40" placeholder="Síntomas observados..." required></textarea>
+    </div>
+    <br>
+
+    <button type="submit">Guardar Cita</button>
+    <a th:href="@{/view/citas}">
+        <button type="button">Volver</button>
+    </a>
+
+</form>
+
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>
