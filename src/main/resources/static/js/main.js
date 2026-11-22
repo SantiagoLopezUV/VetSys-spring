@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const searchInput = document.createElement('input');
     searchInput.type = 'text';
-    searchInput.placeholder = '🔍 Buscar en la lista...';
+    searchInput.placeholder = '🔍 Buscar';
     searchInput.className = 'table-filter-input';
 
     searchContainer.appendChild(searchInput);
