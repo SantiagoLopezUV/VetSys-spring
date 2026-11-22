@@ -1,0 +1,390 @@
+/* Variables y colores del sistema */
+:root {
+  --primary: #0f766e;
+  --primary-hover: #115e59;
+  --primary-light: #f0fdfa;
+  --bg-page: #f8fafc;
+  --card-bg: #ffffff;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --btn-edit: #0284c7;
+  --btn-edit-hover: #0369a1;
+  --btn-delete: #dc2626;
+  --btn-delete-hover: #b91c1c;
+  --btn-neutral: #64748b;
+  --btn-neutral-hover: #475569;
+  --btn-accent: #0d9488;
+  --btn-accent-hover: #0f766e;
+}
+
+- {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 24px 20px;
+  line-height: 1.5;
+}
+
+/* Barra de navegacion centrada */
+nav {
+  background: linear-gradient(135deg, #0f766e, #134e4a);
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+nav a {
+  color: #f0fdfa;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+/* Titulos y textos */
+h1 {
+  color: var(--primary);
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+h2, h3 {
+  color: var(--text-dark);
+}
+
+/* Botones principales y acciones */
+button, input[type="submit"] {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+body > a button,
+form > button[type="submit"] {
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(15, 118, 110, 0.2);
+}
+
+body > a button:hover,
+form > button[type="submit"]:hover {
+  background-color: var(--primary-hover);
+}
+
+form a button,
+form a {
+  background-color: var(--btn-neutral);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 7px;
+}
+
+form a button:hover {
+  background-color: var(--btn-neutral-hover);
+}
+
+/* Diseno y centrado de tablas */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin: 16px auto 24px auto;
+}
+
+th {
+  background-color: #f1f5f9;
+  color: #334155;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--border-color);
+  text-align: left;
+}
+
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+  color: var(--text-dark);
+  vertical-align: middle;
+}
+
+/* Alineacion central para columnas numericas y acciones */
+th:first-child, td:first-child {
+  text-align: center;
+  width: 1%;
+  white-space: nowrap;
+}
+
+th:nth-child(2), td:nth-child(2) {
+  text-align: center;
+  width: 50px;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Botones dentro de tablas */
+td form {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+td a {
+  display: inline-block;
+}
+
+td a[href*="edit"] {
+  background-color: transparent;
+}
+
+td a[href*="edit"] button {
+  background-color: var(--btn-edit);
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+td a[href*="edit"] button:hover {
+  background-color: var(--btn-edit-hover);
+}
+
+td form button[type="submit"] {
+  background-color: var(--btn-delete);
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+td form button[type="submit"]:hover {
+  background-color: var(--btn-delete-hover);
+}
+
+td a[href*="tratamientos"]:not([href*="edit"]) button {
+  background-color: var(--btn-accent);
+  color: #ffffff;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+td a[href*="tratamientos"]:not([href*="edit"]) button:hover {
+  background-color: var(--btn-accent-hover);
+}
+
+/* Formularios */
+form:not(td form) {
+  max-width: 560px;
+  margin: 16px auto;
+  background: var(--card-bg);
+  padding: 28px 32px;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06);
+}
+
+form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
+form input[type="date"],
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text-dark);
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s ease;
+  margin-bottom: 4px;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+
+form button[type="submit"] {
+  margin-top: 12px;
+  margin-right: 8px;
+}
+
+/* Alertas y notificaciones */
+.alert-box,
+p[th\\:if*="message"],
+p[th\\:if*="success"],
+p[th\\:if*="messsage"] {
+  background-color: #f0fdf4;
+  border: 1px solid #86efac;
+  color: #166534;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+p[th\\:if*="error"] {
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #991b1b;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+p:empty {
+  display: none;
+}
+
+/* Buscador de tablas */
+.table-filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.table-filter-input {
+  width: 260px;
+  padding: 8px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.table-filter-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+
+/* Panel de inicio */
+.dashboard-banner {
+  background-color: var(--card-bg);
+  padding: 32px;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-card {
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 15px -3px rgba(15, 118, 110, 0.12);
+}
+
+.dashboard-card-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.dashboard-card-title {
+  color: var(--primary);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.dashboard-card-desc {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.dashboard-card-btn {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 13px;
+}
