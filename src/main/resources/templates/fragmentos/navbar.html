@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<nav th:fragment="navbar">
+    <a th:href="@{/}">🏠Inicio</a>
+    <a th:href="@{/view/mascotas}">🐾 Mascotas</a>
+    <a th:href="@{/view/duenos}">👤 Dueños</a>
+    <a th:href="@{/view/citas}">📅 Citas</a>
+    <a th:href="@{/view/tratamientos}">💊 Tratamientos</a>
+</nav>
+
+</body>
+</html>

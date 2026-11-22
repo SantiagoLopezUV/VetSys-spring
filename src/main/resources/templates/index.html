@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VetSys - Sistema de Gestión Veterinaria</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+
+<nav th:replace="~{fragmentos/navbar :: navbar}"></nav>
+
+<div class="dashboard-banner">
+    <h1 style="margin-bottom: 8px;">Sistema de Gestión Veterinaria</h1>
+    <p style="color: #64748b; font-size: 15px; margin: 0 auto; max-width: 700px;">
+        Bienvenido al panel central de atención veterinaria. Seleccione el módulo con el que desea trabajar para gestionar pacientes, citas y tratamientos clínicos.
+    </p>
+</div>
+
+<div class="dashboard-grid">
+
+    <a th:href="@{/view/mascotas}" class="dashboard-card">
+        <div>
+            <div class="dashboard-card-icon">🐾</div>
+            <div class="dashboard-card-title">Mascotas</div>
+            <div class="dashboard-card-desc">
+                Registro y control de pacientes, información de raza, especie, edad y relación con sus dueños.
+            </div>
+        </div>
+        <div class="dashboard-card-btn">
+            Gestionar Mascotas →
+        </div>
+    </a>
+
+    <a th:href="@{/view/duenos}" class="dashboard-card">
+        <div>
+            <div class="dashboard-card-icon">👤</div>
+            <div class="dashboard-card-title">Dueños</div>
+            <div class="dashboard-card-desc">
+                Directorio de propietarios de mascotas, teléfonos de contacto, correo y dirección de domicilio.
+            </div>
+        </div>
+        <div class="dashboard-card-btn">
+            Gestionar Dueños →
+        </div>
+    </a>
+
+    <a th:href="@{/view/citas}" class="dashboard-card">
+        <div>
+            <div class="dashboard-card-icon">📅</div>
+            <div class="dashboard-card-title">Citas Médicas</div>
+            <div class="dashboard-card-desc">
+                Programación de consultas, asignación de médico veterinario responsable y motivo de la consulta.
+            </div>
+        </div>
+        <div class="dashboard-card-btn">
+            Gestionar Citas →
+        </div>
+    </a>
+
+    <a th:href="@{/view/tratamientos}" class="dashboard-card">
+        <div>
+            <div class="dashboard-card-icon">💊</div>
+            <div class="dashboard-card-title">Tratamientos</div>
+            <div class="dashboard-card-desc">
+                Prescripción de medicamentos, indicaciones de dosis y procedimientos asociados a cada cita médica.
+            </div>
+        </div>
+        <div class="dashboard-card-btn">
+            Gestionar Tratamientos →
+        </div>
+    </a>
+
+</div>
+
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>
