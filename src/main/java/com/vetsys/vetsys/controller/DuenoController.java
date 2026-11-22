@@ -1,9 +1,8 @@
 package com.vetsys.vetsys.controller;
 
-import com.vetsys.vetsys.dto.DuenoDTO;
+import com.vetsys.vetsys.dto.Duenos.DuenoDTO;
 import com.vetsys.vetsys.entity.Dueno;
 import com.vetsys.vetsys.repository.DuenoRepository;
-import jakarta.validation.constraints.Past;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -23,7 +23,7 @@ public class MascotaController {
 
     public MascotasDTOSalida dto(Mascota mascota)
     {
-        Long id_dueno = mascota.getDueno() != null
+        Long idDueno = mascota.getDueno() != null
                 ? mascota.getDueno().getId_dueno() : null;
         String nombreDueno = mascota.getDueno() != null
                 ? mascota.getDueno().getNombre() : null;
@@ -31,7 +31,7 @@ public class MascotaController {
                 mascota.getId_mascota(),
                 mascota.getNombre(),
                 mascota.getEspecie(),
-                id_dueno,
+                idDueno,
                 nombreDueno
         );
     }

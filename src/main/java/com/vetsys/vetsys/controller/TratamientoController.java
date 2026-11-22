@@ -83,7 +83,8 @@ public class TratamientoController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
+    public void delete(@PathVariable Long id)
+    {
         tratamientoRepository.deleteById(id);
     }
 }
